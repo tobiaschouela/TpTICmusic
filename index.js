@@ -1,18 +1,15 @@
-import express from express;
+import express from "express";
+import usuario from "./usuario.js";
 
+const app = express();
+app.use(express.json());
 
-const app =express();
-const port =3000;
-
-
-import usuario from usuario;
-
-
-app.post("/usuario", usuario.createusuario);
+app.post("/crearusuario", usuario.crearusuario);
 app.post("/login", usuario.login);
-app.put("/escucho",usuario.escucho);
+app.post("/escucho", usuario.escucho);
 
+if (!process.env.VERCEL) {
+  app.listen(3000, () => console.log("listening on http://localhost:3000"));
+}
 
-app.listen(port,()=>{
-    console.log("listening on http://localhost:${port}")
-});
+export default app;
