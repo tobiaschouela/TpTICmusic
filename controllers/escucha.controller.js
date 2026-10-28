@@ -1,4 +1,4 @@
-import * as escuchaService from "../services/escucha.service.js";
+import escuchaService from "../services/escucha.service.js";
 
 export const escucho = async (req, res) => {
   const { id } = req.body

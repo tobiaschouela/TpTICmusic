@@ -1,9 +1,13 @@
 import jwt from "jsonwebtoken";
 
+
 const verifyToken = (req, res, next) => {
   const header = req.headers.authorization;
   if (!header) return res.status(401).json({ error: "Falta el token" });
+
+
   const token = header.startsWith("Bearer ") ? header.slice(7) : header;
+
   try {
     req.user = jwt.verify(token, process.env.JWT_SECRET);
     next();
@@ -18,6 +22,5 @@ const verifyAdmin = (req, res, next) => {
   }
   next();
 }
-
 const Auth = { verifyToken, verifyAdmin };
 export default Auth;

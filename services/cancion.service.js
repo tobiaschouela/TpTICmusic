@@ -1,6 +1,6 @@
 import { query } from "../db.js";
 
-export const crearCancion = async (nombre) => {
+const crearCancion = async (nombre) => {
   const result = await query(
     "INSERT INTO cancion (nombre) VALUES ($1) RETURNING *",
     [nombre]
@@ -9,7 +9,7 @@ export const crearCancion = async (nombre) => {
 };
 
 
-export const modificarCancion = async (id, nombre) => {
+const modificarCancion = async (id, nombre) => {
   const result = await query(
     "UPDATE cancion SET nombre = $1 WHERE id = $2 RETURNING *",
     [nombre, id]
@@ -18,7 +18,7 @@ export const modificarCancion = async (id, nombre) => {
 }
 
 
-export const borrarCancion = async (id) => {
+const borrarCancion = async (id) => {
   await query("DELETE FROM escucha WHERE cancion_id = $1", [id]);
   const result = await query("DELETE FROM cancion WHERE id = $1", [id]);
   return result.rowCount > 0;

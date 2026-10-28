@@ -1,11 +1,10 @@
 import { Router } from "express";
-import * as escuchaController from "../controllers/escucha.controller.js";
-import { verifyToken } from "../middlewares/auth.middleware.js";
+import EscuchaController from "../controllers/escucha.controller.js";
+import Auth from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
-
-router.post("/", verifyToken, escuchaController.escucho);
-router.get("/", verifyToken, escuchaController.misEscuchas);
+router.post("/", Auth.verifyToken, EscuchaController.escucho);
+router.get("/", Auth.verifyToken, EscuchaController.misEscuchas);
 
 export default router;

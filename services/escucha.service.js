@@ -43,3 +43,5 @@ const listarEscuchas = async (usuarioId) => {
   );
   return result.rows;
 };
+const EscuchaService = { existeCancion, registrarEscucha, actualizarFan, listarEscuchas };
+export default EscuchaService;

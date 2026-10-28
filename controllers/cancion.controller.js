@@ -1,4 +1,4 @@
-import * as cancionService from "../services/cancion.service.js";
+import cancionService from "../services/cancion.service.js";
 
 const crearCancion = async (req, res) => {
   const { nombre } = req.body
