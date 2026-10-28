@@ -18,3 +18,6 @@ const verifyAdmin = (req, res, next) => {
   }
   next();
 }
+
+const Auth = { verifyToken, verifyAdmin };
+export default Auth;

@@ -36,3 +36,6 @@ const borrarCancion = async (req, res) => {
     res.status(500).json({ error: "No se pudo borrar la canción" })
   }
 }
+
+const CancionController = { crearCancion, modificarCancion, borrarCancion };
+export default CancionController;

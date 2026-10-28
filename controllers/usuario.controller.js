@@ -30,3 +30,6 @@ const login = async (req, res) => {
     res.status(500).json({ error: "Error en el login" })
   }
 }
+
+const UsuarioController = { crearUsuario, login };
+export default UsuarioController;

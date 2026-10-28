@@ -24,3 +24,6 @@ const misEscuchas = async (req, res) => {
     res.status(500).json({ error: "Error al obtener las escuchas" });
   }
 }
+
+const EscuchaController = { escucho, misEscuchas };
+export default EscuchaController;

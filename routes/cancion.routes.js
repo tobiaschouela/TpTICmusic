@@ -4,7 +4,7 @@ import { verifyToken, verifyAdmin } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
-// Sólo admin: verifyToken siempre antes que verifyAdmin
+
 router.post("/", verifyToken, verifyAdmin, cancionController.crearCancion);
 router.put("/", verifyToken, verifyAdmin, cancionController.modificarCancion);
 router.delete("/", verifyToken, verifyAdmin, cancionController.borrarCancion);
